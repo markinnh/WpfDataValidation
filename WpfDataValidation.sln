@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfDataValidation", "WpfDataValidation\WpfDataValidation.csproj", "{53DF4F20-D436-43DB-9111-00A8AC2431B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWpfValidators", "MyWpfValidators\MyWpfValidators.csproj", "{5EDD0C7C-C699-4C94-83D7-195755EC79BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53DF4F20-D436-43DB-9111-00A8AC2431B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53DF4F20-D436-43DB-9111-00A8AC2431B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53DF4F20-D436-43DB-9111-00A8AC2431B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53DF4F20-D436-43DB-9111-00A8AC2431B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EDD0C7C-C699-4C94-83D7-195755EC79BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EDD0C7C-C699-4C94-83D7-195755EC79BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EDD0C7C-C699-4C94-83D7-195755EC79BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EDD0C7C-C699-4C94-83D7-195755EC79BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {443C2F60-ACBC-481C-BC34-1D72C77ED5B1}
+	EndGlobalSection
+EndGlobal
