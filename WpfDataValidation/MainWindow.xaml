@@ -24,6 +24,27 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="DataGridCell" x:Key="Standard">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="EditCellStyleError" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CellStyleError" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Window.DataContext>
         <local:MainWindowViewModel/>
@@ -52,7 +73,7 @@
                 Height="26"
                 HorizontalAlignment="Left"
                 Margin="5"/>
-<!--            <TextBlock>
+            <!--            <TextBlock>
                 <Run Text="Enter a number between "/>
                 <Run Text="{Binding ViewMin}"/>
                 <Run Text=" and "/>
@@ -90,11 +111,28 @@
             </TextBox>
             <DataGrid
                       ItemsSource="{Binding AgeEntries}"
-                      Height="200" AutoGenerateColumns="False">
+                      Height="200" AutoGenerateColumns="False"
+                FontSize="14">
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsEditing" Value="True">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="FontSize" Value="18"/>
+                            </Trigger>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="ToolTip" 
+                                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                              Path=(Validation.Errors)[0].ErrorContent}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Binding="{Binding Name,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Header="Name"/>
-                    <DataGridTextColumn Binding="{Binding Age, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" Header="Age"/>
+                    <DataGridTextColumn Binding="{Binding Age, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" Header="Age" EditingElementStyle="{StaticResource EditCellStyleError}" ElementStyle="{StaticResource CellStyleError}"/>
 
                 </DataGrid.Columns>
             </DataGrid>

@@ -12,5 +12,12 @@ namespace MyWpfValidators
             var result = new Between<T>(minimum, maximum, includeMin, includeMax);
             return result.Succeeds(comparable);
         }
+        public static void Update<TKey,TValue>(this Dictionary<TKey,TValue> dictionary,TKey key,TValue newValue)
+        {
+            if (dictionary.ContainsKey(key))
+                dictionary[key] = newValue;
+            else
+                dictionary.Add(key, newValue);
+        }
     }
 }

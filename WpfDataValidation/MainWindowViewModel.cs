@@ -29,29 +29,36 @@ namespace WpfDataValidation
             }
         }
         //public int ViewMin { get; set; } = 25;
-        private int viewMin = startMin;
+
 
         public int ViewMin
         {
-            get => viewMin;
+            get => AgeEntry.MinimumAge;
             set
             {
-                Set<int>(ref viewMin, value, nameof(ViewMin));
-                UpdateRanges();
-                OnPropertyChanged(nameof(AgeInputPrompt));
+                if (AgeEntry.MinimumAge != value)
+                {
+                    AgeEntry.MinimumAge = value;
+                    OnPropertyChanged(nameof(ViewMin));
+                    UpdateRanges();
+                    OnPropertyChanged(nameof(AgeInputPrompt));
+                }
             }
         }
 
         //public int ViewMax { get; set; } = 130;
-        private int viewMax = startMax;
 
         public int ViewMax
         {
-            get => viewMax;
+            get => AgeEntry.MaximumAge;
             set
             {
-                Set<int>(ref viewMax, value, nameof(ViewMax));
-                UpdateRanges();
+                if (AgeEntry.MaximumAge != value)
+                {
+                    AgeEntry.MaximumAge = value;
+                    OnPropertyChanged(nameof(ViewMax));
+                    UpdateRanges();
+                }
             }
         }
         public string AgeInputPrompt => $"enter an age between {ViewMin} and {ViewMax}";
